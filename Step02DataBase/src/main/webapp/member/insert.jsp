@@ -22,17 +22,18 @@
 <head>
 <meta charset="UTF-8">
 <title>/member/insert.jsp</title>
+<jsp:include page="/include/resource.jsp"></jsp:include>
 </head>
 <body>
-	<div class="container">
+	<div class="container mt-5">
 		<h3>알림</h3>
 		<%if(isSuccess){ %>
-			<p>
+			<p class="alert alert-success"> 
 				<strong><%=name %></strong>님의 정보를 저장했습니다.
 				<a href="list.jsp">목록 보기</a>
 			</p>
 		<%}else{ %>
-			<p>
+			<p class="alert alert-danger">
 				회원 정보 저장 실패!
 				<a href="insertform.jsp">다시 작성</a>
 			</p>

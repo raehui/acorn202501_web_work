@@ -31,9 +31,10 @@
 <head>
 <meta charset="UTF-8">
 <title>/food/insert.jsp</title>
+<jsp:include page="/include/resource.jsp"></jsp:include>
 </head>
 <body>
-	<div class="container">
+	<div class="container mt-5">
 		<h3>알림</h3>
 		<script>
 		//자바 영역과 자바 스크립트 영역의 구분? 동적인 느낌의 데이터 처리 , 뒤에서의 역할 / 정적인 느낌으로 UI 혹은 상호작용
