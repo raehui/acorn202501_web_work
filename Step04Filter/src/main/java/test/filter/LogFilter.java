@@ -39,6 +39,7 @@ public class LogFilter implements Filter {
 		System.out.println("요청 uri: "+uri );
 		//클라이언트의 IP 주소 알아내기
 		String clientIp=request.getRemoteAddr();
+		
 		System.out.println("client id: "+ clientIp);
 		
 		//시간 알아내기
