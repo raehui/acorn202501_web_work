@@ -16,7 +16,7 @@
 <title>member/list.jsp</title>
 <jsp:include page="/include/resource.jsp"/> 
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 	<%-- 
 		navbar.jsp 페이지를 포함 시키고 해당 페이지에 "current" 라는 파라미터 명으로 "member" 전달하기 
 		그러면 navbar.jsp 페이지에서는
@@ -25,7 +25,7 @@
 	<jsp:include page="/include/navbar.jsp">
 		<jsp:param value="member" name="current"/> 
 	</jsp:include> 
-	<div class="container">
+	<div class="container flex-grow-1">
 		<a href="insertform.jsp">
 			<%--아이콘을 추가하기 --%>
 			<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-person-add" viewBox="0 0 16 16">
@@ -74,5 +74,7 @@
 			</tbody>
 		</table>
 	</div>
+	<jsp:include page="/include/foother.jsp"></jsp:include>
+	
 </body>
 </html>

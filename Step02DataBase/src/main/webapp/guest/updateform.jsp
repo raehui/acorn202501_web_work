@@ -16,10 +16,24 @@
 </head>
 <body>
 	<div class="container">
+		<nav> <%-- --%>
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item">
+					<a href="${pageContext.request.contextPath}/"}>HOME</a> 
+					<%--마지막에 / 작성하지 않아도 최상위 경로의 index.jsp--%>
+				</li>
+				<li class="breadcrumb-item">
+					<a href="${pageContext.request.contextPath}/guest/list.jsp"}>방명록 목록</a>
+				</li>
+				<li class="breadcrumb-item">글수정</li>
+			</ol>
+		</nav>
+	
 		<h1>방명록 글 수정 폼</h1>
 		<form action="update.jsp" method="post">
 			<div class="mb-2">
 				<label for="num" class="form-label">번호</label>
+				<%--name이 없으면 서버에 데이터가 전송되지 않음 --%>
 				<input type="text" name="num" id="num" value=<%=dto.getNum() %> readonly class="form-control" />
 			</div>
 			<div class="mb-2">
