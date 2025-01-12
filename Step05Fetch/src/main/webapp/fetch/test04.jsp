@@ -8,6 +8,7 @@
 </head>
 <body>
 	<button id="getBtn">친구이름 목록 받아오기</button>
+	<button id="getBtn2">친구 이름 목록 받아오기2</button>		
 	<ul id="friendList">
 	
 	</ul>
@@ -31,6 +32,30 @@
 				console.log("에러정보:"+error);
 			});
 		});
+		
+		//바닐라 코딩으로 친구 이름 목록 받아오기
+		document.querySelector("#getBtn2").addEventListener("click",()=>{
+			fetch("friends.jsp")
+			.then(res=>res.json())
+			.then(data=>{
+				for(let i=0;i<data.length;i++){
+					//li요소를 생성하고 li 상수에 담아야 함
+					//웹 프로그래밍 에선 다음에 이용하기 위해서는 변수나 상우에 무조건 담아야 함.
+					const li=document.createElement("li");
+					//li요소에 내용 넣기
+					li.innerText=data[i];
+					//ul에 li요소 추가하기
+					document.querySelector("#friendList").append(li);
+					}
+				})
+			
+			
+			.catch(error=>{
+				console.log("에러정보:"+error);
+			});
+		});
+		
+		
 	</script>
 </body>
 </html>

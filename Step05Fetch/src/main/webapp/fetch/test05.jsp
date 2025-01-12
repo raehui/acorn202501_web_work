@@ -15,25 +15,28 @@
 	</form>
 	<script>
 		//폼에 submit 이벤트가 발생했을 때 실행할 함수 등록
+		//form 자체를 선택 하고 버튼 시 이벤트
 		document.querySelector("#myForm").addEventListener("submit",(e)=>{
 			//event 객체의 .preventDefault() 함수를 호출하면서 기본 동작을 막는다(폼 제출이 막아진다.)
 			e.preventDefault();
 			console.log("submit!");
 			//폼에 입력한 내용을 FormData Type 으로 얻어내기
-			const data=new FormData(e.target); //e.target은 form 의 참조값이다. 파라미터가 들어가지 않은 찐 form의 참조값
+			//입력한 내용을 name 속성을 기준으로 가져옴 -> id=user1234 pwd=1234
+			const data=new FormData(e.target); //e.target은 form 의 참조값이다
 			//FormData를 이용해서 query string 얻어내기
-			//form의 참조값을 string로
+			//즉 -> id=user123&pwd=mypassword
 			const queryString=new URLSearchParams(data).toString();
 			//query string 을 콘솔에 출력하기
 			console.log(queryString);
 			//action 속성의 value 읽어오기
+			// /user/login.jsp를 가져옴
 			const url=e.target.action;
 			//fetch()함수를 이용해서 post 방식 요청하면서 queryString 을 요청의 body 에 전달하기
 			//form 을 제출하는 것을 그냥 fetch로 구현한 것으로
 			fetch(url,{
 				method:"POST",
 				headers:{"Content-Type":"application/x-www-form-urlencoded; charset=utf-8"},
-				body:queryString
+				body:queryString //URLSearchParams으로 URL에 같이 딸려간 데이터를 body로 한다.
 				
 			})
 			.then(res=>res.json())

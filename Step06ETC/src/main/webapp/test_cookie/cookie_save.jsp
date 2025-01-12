@@ -5,11 +5,12 @@
 	String msg=request.getParameter("msg");
 
 	//1. 쿠키 객체 생성
+	//키값과 value값 작성하기
 	Cookie cook=new Cookie("savedMsg",msg);
 	//2. 쿠키 유지시간 설정(초단위)
 	cook.setMaxAge(60); //60초 테스트
 	//3. 응답할 때 쿠키도 같이 응답하도록
-	//쿠키 부스러기도 같이 보냄
+	//웹브라우저가 자신만의 특유한 쿠키를 가질 수 있도록 허용시킴
 	response.addCookie(cook);
 	//4. 응답할 때 쿠키가 자동으로 응답되고 클라이언트의 웹브라우저에 저장이 된다.
 	

@@ -23,6 +23,7 @@
 			.then(res=>res.json())
 			.then(data=>{
 				console.log(data);
+				alert(data.message)
 			})
 			//예외 추가하기
 			.catch(error=>{
@@ -32,8 +33,12 @@
 	
 	document.querySelector("#sendBtn").addEventListener("click",()=>{
 		//입력한 문자열 읽어오기
+		//요소의 아이디를 통해 .value 라는 명령어로 입력한 내용 가져오기 = 자바 스크립트 영역
+		//request.getParameter 는 입력한 데이터의 이름표로 데이터를 가져옴 = 자바 영역
 		const msg=document.querySelector("#msg").value;
 		//fetch 함수를 호출하면서 GET 방식 파라미터 send.jsp 페이지를 요청하면서 전달한다.
+		//fetch 함수에서는 기본으로 GET 방식이 사용되며 POST 방식을 사용할려면 body라는 요소에 내용 담아야 한다.
+		//msg 라는 이름표로 msg의 데이터를 담고 send.jsp를 서버에 요청함 그러면 send.jsp 페이지에서의 서버의 영역에서 받아옴
 		fetch("send.jsp?msg="+msg) <%--send.jsp 페이지로부터 요청하고 받아옴/ 입력한 내용을 파라미터로 가지고 가서 요청함--%>
 		.then(res=>res.text()) <%--응답--%>
 		.then(data=>{ <%--data 매개 변수로 받아와서 콘솔에 출력--%>

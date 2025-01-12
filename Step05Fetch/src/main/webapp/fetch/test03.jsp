@@ -15,7 +15,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 	<script>
 		$("#getBtn").on("click",()=>{
-			fetch("member.jsp")
+			fetch("member.jsp") //서버인 member.jsp 에서 데이터 요청 & 받아오기
 			.then(res=>res.json())
 			.then(data=>{
 				//jquery 의 .text() 동작을 이용해서 data object 에 담긴 정보를 innerText에 출력하기

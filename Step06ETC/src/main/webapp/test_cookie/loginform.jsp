@@ -5,6 +5,7 @@
 	String savedId="";
 	String savedPwd="";
 	//쿠키에 저장된 값을 위의 변수에 저장하는 코드를 작성해 보세요.
+	//getCookies() 쿠키 여러개를 갖고 온다.
 	Cookie[] cooks=request.getCookies();
 	if(cooks!=null){
 		//반복문 돌면서 쿠키객체를 하나씩 참조해서 
